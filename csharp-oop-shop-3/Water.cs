@@ -13,6 +13,7 @@ namespace csharp_oop_shop_3
     private double liters;
     private int ph;
     private string spring;
+    public static readonly double gallons = 3.785;
 
     public Water(string name, string description, double price, int iva, double liters, int ph, string spring) : base(name, description, price, iva)
     {
@@ -72,7 +73,7 @@ namespace csharp_oop_shop_3
         {
             if (this.liters + insertedWater > 1.5)
             {
-                throw new Exception("hai superato la capienza massima dell'acqua riempendo");
+                throw new Exception("Hai superato la capienza massima dell'acqua riempendo");
             }
             else
             {
@@ -82,6 +83,11 @@ namespace csharp_oop_shop_3
         public void EmptyBottle()
         {
             this.liters = 0;
+        }
+
+        public static void ConvertToGallons(double liters)
+        {
+            double litersInGallons = liters * gallons;
         }
 
 
