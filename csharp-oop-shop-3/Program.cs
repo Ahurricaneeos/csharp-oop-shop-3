@@ -1,11 +1,12 @@
 ﻿using csharp_oop_shop_3;
 
-Water water = new Water("panna", "podco", 22, 4, 1.7, 12, "osf");
-
 try
 {
-    water.GetProductString();
-} catch (Exception e)
+    Water water = new Water("San Pellegrino", "Acqua Frizzante", 1.20, 4, 1, 7, "San Pellegrino");
+    Console.WriteLine(water);
+    water.RefillWater(4);
+}
+catch (Exception e)
 {
-    Console.WriteLine(e.Message);
+    Console.WriteLine("Qualcosa è andato storto.. " + e.Message);
 }

@@ -25,7 +25,7 @@ namespace csharp_oop_shop_3
     public int GetPh() { return ph; }
     public string GetSpring() { return spring; }
 
-    public void SetLiters(double litri)
+    public void SetLiters(double liters)
     {
       if (liters > 1.5 || liters <= 0)
       {
@@ -57,14 +57,14 @@ namespace csharp_oop_shop_3
         // Metodi
         public void DrinkWater(double drunkWater)
         {
-            if (this.liters - drunkWater > 0)
+            if (this.liters - drunkWater < 0)
             {
-                this.liters = liters - drunkWater;
                 throw new Exception("Non puoi bere più acqua di quanta ce n'è");
             }
             else
             {
-                this.liters = 0;
+                this.liters = this.liters - drunkWater;
+                Console.WriteLine("L'acqua rimanente nella bottiglia è " +  this.liters);
             }
         }
 
@@ -72,7 +72,6 @@ namespace csharp_oop_shop_3
         {
             if (this.liters + insertedWater > 1.5)
             {
-                this.liters = 1.5;
                 throw new Exception("hai superato la capienza massima dell'acqua riempendo");
             }
             else
@@ -86,11 +85,11 @@ namespace csharp_oop_shop_3
         }
 
 
-        public override string GetProductString()
+        public override string ToString()
     {
         string rappStr = base.GetProductString();
-        rappStr += "Litri: " + this.liters;
-        rappStr += "Ph: " + this.ph;
+        rappStr += "Litri: " + this.liters + "\n";
+        rappStr += "Ph: " + this.ph + "\n";
         rappStr += "La sorgente è: " + this.spring;
 
         return rappStr;
